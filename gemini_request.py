@@ -1,4 +1,5 @@
 import google.generativeai as genai
+import argparse
 
 def send_gemini_request(prompt_text: str, model_name: str = "gemini-1.5-flash-latest") -> str:
   """Sends a request to the Gemini API and returns the response text.
@@ -21,9 +22,12 @@ def send_gemini_request(prompt_text: str, model_name: str = "gemini-1.5-flash-la
 if __name__ == "__main__":
   # Note: To run this script, you need to have the GOOGLE_API_KEY environment
   # variable set to your API key.
-  sample_prompt = "日本の天気について教えてください。"  # Tell me about the weather in Japan.
+  parser = argparse.ArgumentParser(description="Send a prompt to the Gemini API.")
+  parser.add_argument("prompt", help="The prompt text to send to the Gemini API")
+  args = parser.parse_args()
+
   try:
-    response_text = send_gemini_request(sample_prompt)
+    response_text = send_gemini_request(args.prompt)
     if response_text:
       print(response_text)
   except Exception as e:

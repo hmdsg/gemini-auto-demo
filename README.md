@@ -28,11 +28,12 @@ This script sends a request to the Google Gemini API using the Python SDK.
 2.  **Navigate to the script directory.**
 3.  **Run the script:**
     ```bash
-    python gemini_request.py
+    python gemini_request.py "日本の天気について教えてください。"
     ```
-    The script will send a predefined Japanese prompt ("日本の天気について教えてください。" - "Tell me about the weather in Japan.") to the Gemini API and print the response.
+    Replace `"日本の天気について教えてください。"` with your desired prompt.
+    The script will send the provided prompt to the Gemini API and print the response.
 
 ## Customization
 
--   **Prompt:** You can change the `sample_prompt` variable in the `if __name__ == "__main__":` block of `gemini_request.py` to send a different query.
+-   **Prompt:** The prompt is provided as a command-line argument when running the script. See 'Running the Script' for an example.
 -   **Model:** The script uses `gemini-1.5-flash-latest` by default. You can change the `model_name` argument in the `send_gemini_request` function call or its default value to use a different Gemini model.
